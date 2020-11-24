@@ -14,7 +14,8 @@ Solves collision free shortest path planning problem for a mobile robot in 2D st
 ![](image/result_map_2.png)
 
 # Features
-1. True Elitisim
+1. complex 2D static path to test the algorithm
+2. True Elitisim - copy and paste best candidate into next generation
 2. Bit Flip mutation operator
 3. Multi point crossover @ 90% probability
 4. Scalable to N number of candidates
