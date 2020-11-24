@@ -5,6 +5,14 @@ Solves collision free shortest path planning problem for a mobile robot in 2D st
 ## Date - 11/24/2020
 ## Author - Azmyin Md. Kamal, G.R.A, UL Lafayette, Louisiana, USA
 
+# Images
+### Path 1
+![](image/map1.png)
+### Path 2
+![](image/map2.PNG)
+### Sample Result
+![](image/result_map_2.png)
+
 # Features
 1. True Elitisim
 2. Bit Flip mutation operator
