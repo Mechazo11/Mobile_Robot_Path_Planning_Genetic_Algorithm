@@ -6,9 +6,9 @@ Solves collision free shortest path planning problem for a mobile robot in 2D st
 ## Author - Azmyin Md. Kamal, G.R.A, UL Lafayette, Louisiana, USA
 
 # Images
-### Path 1
+### Enviroment 1
 ![](image/map1.png)
-### Path 2
+### Enviroment 2
 ![](image/map2.PNG)
 ### Sample Result
 ![](image/result_map_2.png)
