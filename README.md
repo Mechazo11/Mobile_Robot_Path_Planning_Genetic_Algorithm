@@ -34,5 +34,5 @@ Solves collision free shortest path planning problem for a mobile robot in 2D st
 * *label* points by Adam Danz, (https://www.mathworks.com/matlabcentral/fileexchange/46891-labelpoints)
 
 ## Technical Report
-1. Kamal, Azmyin M. (2020), "Collison-Free, Shortest-Path Planning for Mobile Robots in 2D Static Workspace using Genetic Algorithm" Graduate Report (url to be placed later)
+1. Kamal, Azmyin M. (2020), "Collison-Free, Shortest-Path Planning for Mobile Robots in 2D Static Workspace using Genetic Algorithm" [TODO URL]
 2. G. Nagib and W. Gharleb (2004), "Path planning for a mobile robot using using genetic algorithm" (http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.324.42)
