@@ -36,18 +36,19 @@ function [new_gen_2] = run_genetic_algo(gen_count, bit_count,X1, N, path_index, 
     X1 = inject_global_best(X1, path_index, point_mat);
     
     % Need a table to show these answers later
-    % Delete later
-    fprintf("\n---------------------- Candiates going in----------------\n")
-    X1
-    fprintf("\n---------------------- Candiates going in----------------\n")  
+    % DEBUG
+    % fprintf("\n---------------------- Candiates going in----------------\n")
+    % X1
+    % fprintf("\n---------------------- Candiates going in----------------\n")  
     
     % Step 1b: Test if al fit_g1 is zero, UNIQUE to this problem
     % fit_g1 is a column vector, totat_fit_g1 is a scalar
     [fit_g1, total_fit_g1] = eval_obj(X1, path_index, point_mat);
     
-    fprintf("\n---------------------- Candiates fitness----------------\n")
-    fit_g1
-    fprintf("\n---------------------- Candiates fitness----------------\n")
+    % DEBUG
+    % fprintf("\n---------------------- Candiates fitness----------------\n")
+    % fit_g1
+    % fprintf("\n---------------------- Candiates fitness----------------\n")
     
     % Step 2: Remember best fit individual from this generation
     % What happens if all values are zero?

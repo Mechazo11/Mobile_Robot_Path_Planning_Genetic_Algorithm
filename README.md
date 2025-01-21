@@ -32,7 +32,7 @@ Solves collision free shortest path planning problem for a mobile robot in 2D st
 # Known Dependencies
 * MATLAB 2024 or later
 * standard functions *randperm, rand*
-* Communications toolbox for *int2bit* 
+* Communications toolbox, Statistics and Datasampling Toolbox 
 * *label* points by Adam Danz, (https://www.mathworks.com/matlabcentral/fileexchange/46891-labelpoints)
 
 ## Technical Report

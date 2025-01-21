@@ -12,6 +12,7 @@ function [fig_out] = print_best_path(most_fit_g1, most_fit_value, gen_count, poi
     
     % Plot the map
     ff1 = figure;
+    ff1 = figure('Visible', 'off'); % Keep figure display off
     x_map_cor = point_mat(:,2);
     y_map_cor = point_mat(:,3);
     ff1 = scatter(x_map_cor,y_map_cor,'filled');
