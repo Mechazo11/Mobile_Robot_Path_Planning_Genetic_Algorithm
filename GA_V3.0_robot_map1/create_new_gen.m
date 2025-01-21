@@ -146,7 +146,17 @@ point_list = linspace(1,bx,bx); % Row vector
 %HARDCODED, but must have a way to generate
     for ii = 1:bx
         var_dec = point_list(1,ii);
-        bin_arr = de2bi(var_dec,bit_count,'left-msb');
+        % bin_arr = de2bi(var_dec,bit_count,'left-msb');
+        
+        % Experimental fix by deepseekv3
+        bin_arr = int2bit(var_dec, bit_count); % Convert to bits (column vector)
+        bin_arr = bin_arr'; % Transpose to get a row vector
+        bin_arr = flip(bin_arr, 2); % Flip to get 'left-msb' alignment
+
+        % bin_arr = convert_to_bin(var_dec, look_up);
+        
+        bin_arr % Binary array
+        
         look_up(ii,:) = bin_arr;
     end
 look_up = [transpose(point_list), look_up];    

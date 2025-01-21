@@ -30,7 +30,9 @@ Solves collision free shortest path planning problem for a mobile robot in 2D st
 * To update or modify the code, please use the 'HARDCODED' keyword to first ascertain which portion of the codes are hardcoded to this problem.
 
 # Known Dependencies
-* MATLAB 2019, standard functions *randperm, rand*
+* MATLAB 2024 or later
+* standard functions *randperm, rand*
+* Communications toolbox for *int2bit* 
 * *label* points by Adam Danz, (https://www.mathworks.com/matlabcentral/fileexchange/46891-labelpoints)
 
 ## Technical Report
