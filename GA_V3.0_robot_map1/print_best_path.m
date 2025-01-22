@@ -1,4 +1,4 @@
-function [fig_out] = print_best_path(most_fit_g1, most_fit_value, gen_count, point_mat, point_ls, path_index)
+function print_best_path(ff1, most_fit_g1, most_fit_value, gen_count, point_mat, point_ls, path_index)
     % HARDCODED, Plot to view best path
     % path_index - table containing path id and admissible points
     % point_mat -- a matrix containing x,y values for each index point
@@ -11,8 +11,8 @@ function [fig_out] = print_best_path(most_fit_g1, most_fit_value, gen_count, poi
     most_fit_g1 = transpose(most_fit_g1); % For other purposes
     
     % Plot the map
-    ff1 = figure;
-    ff1 = figure('Visible', 'off'); % Keep figure display off
+    %ff1 = figure;
+    %ff1 = figure('Visible', 'off'); % Keep figure display off
     x_map_cor = point_mat(:,2);
     y_map_cor = point_mat(:,3);
     ff1 = scatter(x_map_cor,y_map_cor,'filled');

@@ -151,7 +151,7 @@ point_list = linspace(1,bx,bx); % Row vector
         % Fix for MATLAB 2020 and above.
         % Requires Data Acquisition and Statistics and Machine Learning
         % toolbox
-        bin_arr = decimalToBinaryVector(var_dec,bit_count,'LSBFirst');
+        bin_arr = decimalToBinaryVector(var_dec,bit_count,'MSBFirst');
         
         % Experimental fix by deepseekv3
         %bin_arr = int2bit(var_dec, bit_count); % Convert to bits (column vector)
