@@ -46,9 +46,9 @@ function [new_gen_2] = run_genetic_algo(gen_count, bit_count,X1, N, path_index, 
     [fit_g1, total_fit_g1] = eval_obj(X1, path_index, point_mat);
     
     % DEBUG
-    % fprintf("\n---------------------- Candiates fitness----------------\n")
-    % fit_g1
-    % fprintf("\n---------------------- Candiates fitness----------------\n")
+    fprintf("\n---------------------- Candiates fitness----------------\n")
+    fit_g1'
+    fprintf("\n---------------------- Candiates fitness----------------\n")
     
     % Step 2: Remember best fit individual from this generation
     % What happens if all values are zero?
@@ -79,7 +79,7 @@ function [new_gen_2] = run_genetic_algo(gen_count, bit_count,X1, N, path_index, 
     %fprintf("\n---------------------------------------################ -----------------------------------\n");
     
     % Step 4 Select N random numbers for numerical wheel of fortune
-    rand_ls = random_generator((N*2), 0, 0.98);
+    rand_ls = random_generator((N*2), 0.25, 0.99);
     comp_rand = datasample(rand_ls, N,'Replace',false);
     
     % Step 5 Determine mate using wheel of fortune
@@ -97,6 +97,7 @@ function [new_gen_2] = run_genetic_algo(gen_count, bit_count,X1, N, path_index, 
     
     % Step 9 Perform elitism, copy-paste the strongest guy from the last generation
     new_gen_2 = [new_gen_2;most_fit_g1];
+    
 end
 
 function [X1_renew] = check_minima_loc(X1,bit_count,N, path_index, point_mat, point_ls,m)
@@ -741,6 +742,7 @@ end
 % ---------------------------------------------------------------------------
 function mxx_reshape = reshape_long_row(mate_matrix)
 % Function which reshapes N by n_feature to (N/2) by (n_feature*2) matrix
+assert(mod(size(mate_matrix,1), 2) == 0, 'Input matrix must have even number of rows');
 mmx = mate_matrix;
 mmx = mmx'; % Shape --> (n_feature by N)
 mmx = reshape(mmx,1,[]); % All elements flattened into a row vector

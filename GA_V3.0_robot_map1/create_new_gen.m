@@ -79,7 +79,8 @@ function [child1,child2] = path_genetic_cross(in_mmx, bit_count, look_up, loc_bu
     swap_possible_loc = px_col - 1;
     
     % Double cross over points (Original, randomized)
-    rand_prob = random_generator(px_col, 0, 0.99);
+    rng('shuffle');  % Sets random seed based on current time
+    rand_prob = rand(px_col, 1) * 0.99;
     rand1 = randsample(rand_prob, 1);
     rand2 = randsample(rand_prob, 1);
     a1 = int16(swap_possible_loc * rand1);
@@ -158,7 +159,7 @@ point_list = linspace(1,bx,bx); % Row vector
         %bin_arr = bin_arr'; % Transpose to get a row vector
         %bin_arr = flip(bin_arr, 2); % Flip to get 'left-msb' alignment
 
-        % bin_arr = convert_to_bin(var_dec, look_up);
+        %bin_arr = convert_to_bin(var_dec, look_up);
         
         look_up(ii,:) = bin_arr;
     end
@@ -183,6 +184,9 @@ out_mmx = [];
         %bin_arr = de2bi(var_dec,bit_count,'left-msb');
         %bin_arr = convert_to_bin(var_dec, look_up);
         bin_arr = decimalToBinaryVector(var_dec,bit_count,'LSBFirst');
+        
+        bin_arr; % Is this really changing?
+        
         out_mmx = [out_mmx bin_arr];
     end
     
@@ -240,18 +244,31 @@ end
 end
 
 % ------------------------------------------------------------------------
-function[bit_out] = convert_to_bin(dec_in, look_up)
-    % HARDCODED
-    look_first_col = look_up(:,1);
-    look_bits = look_up(:,[2:end]);
-    % Test if dec_in is in this array
-    res = ismember(dec_in, look_first_col);
-    if (res == 1)
-        % Number is found, convert to binary
-        dec_loc = find(look_first_col == dec_in);
-        bit_out = look_bits(dec_loc,:);
-    else
-        bit_out = look_bits(1,:); % Forcefully send binary bits for 1
+% function[bit_out] = convert_to_bin(dec_in, look_up)
+%     % HARDCODED
+%     look_first_col = look_up(:,1);
+%     look_bits = look_up(:,[2:end]);
+%     % Test if dec_in is in this array
+%     res = ismember(dec_in, look_first_col);
+%     if (res == 1)
+%         % Number is found, convert to binary
+%         dec_loc = find(look_first_col == dec_in);
+%         bit_out = look_bits(dec_loc,:);
+%     else
+%         bit_out = look_bits(1,:); % Forcefully send binary bits for 1
+%     end
+% end
+
+function [bit_out] = convert_to_bin(dec_in, look_up)
+    % Convert decimal number to 4-bit binary array
+    bit_out = zeros(1,4);  % Initialize 1x4 array
+    
+    % Convert using dec2bin to ensure 4 bits
+    temp = dec2bin(dec_in, 4);
+    
+    % Convert string to numeric array
+    for i = 1:4
+        bit_out(i) = str2num(temp(i));
     end
 end
 

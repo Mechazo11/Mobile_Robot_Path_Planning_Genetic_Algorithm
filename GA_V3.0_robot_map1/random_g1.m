@@ -37,8 +37,14 @@ gene_ls = seed_path(N,Cn,min_index, max_index);
 % HARDCODED, inserting two feasible path
 % record current number of rows
 %1 4 9 14 8 10 15 13 15; % 38.51
+% fes_1 = [
+%     1 4 9 14 8 10 15 13 15; % 
+%     1 5 7 4 9 14 15 10 15; % 27.52
+%     1 4 9 14 15 13 12 13 15; % 27.77
+%     ];
+
 fes_1 = [
-    1 5 7 4 9 14 8 10 15; % 
+    1 4 7 5 6 11 10 15 10; % 
     1 5 7 4 9 14 15 10 15; % 27.52
     1 4 9 14 15 13 12 13 15; % 27.77
     ];
@@ -47,7 +53,7 @@ fes_1 = [
 % HARDCODED, CHANGES WITH MAP OF THE ENVIRONMENT
 gene_ls((end-2),:) = fes_1(3,:);
 gene_ls((end-1),:) = fes_1(2,:);
-gene_ls((end),:) = fes_1(1,:);
+gene_ls((end),:) = fes_1(3,:);
 end
 
 % Helper functions
